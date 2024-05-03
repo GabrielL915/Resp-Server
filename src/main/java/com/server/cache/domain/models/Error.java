@@ -10,10 +10,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Error implements RespType {
+public class Error extends RespType {
 
     private String errorMessage;
 
+    @Override
     public String serialize() {
         return "-" + errorMessage + "\r\n";
     }

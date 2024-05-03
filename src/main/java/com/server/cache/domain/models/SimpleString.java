@@ -10,10 +10,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimpleString implements RespType {
+public class SimpleString extends RespType {
 
     private String message;
 
+    @Override
     public String serialize() {
         return "+" + message + "\r\n";
     }

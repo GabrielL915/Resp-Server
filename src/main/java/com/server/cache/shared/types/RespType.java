@@ -1,4 +1,6 @@
 package com.server.cache.shared.types;
 
-public interface RespType {
+public abstract class RespType {
+
+    public abstract String serialize();
 }
