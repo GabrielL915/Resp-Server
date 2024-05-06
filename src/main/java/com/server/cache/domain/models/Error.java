@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Error extends Resp {
+public class Error extends RespType {
 
     private String errorMessage;
 

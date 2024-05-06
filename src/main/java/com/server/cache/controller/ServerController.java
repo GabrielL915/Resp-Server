@@ -1,9 +1,7 @@
 package com.server.cache.controller;
 
 import com.server.cache.domain.service.CommandService;
-import com.server.cache.domain.models.Resp;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +17,7 @@ public class ServerController {
 
     @PostMapping()
     public ResponseEntity<String> handlerCommand(@RequestBody String command) {
-        Resp response = commandService.processCommand(command);
-        return ResponseEntity.ok(response.serialize());
+        String response = commandService.processCommand(command);
+        return ResponseEntity.ok(response);
     }
 }

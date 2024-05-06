@@ -9,13 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimpleString extends RespType {
+public class Arrays extends RespType{
 
     private String message;
 
     @Override
     public String serialize() {
-        return "+" + message + "\\r\\n";
+        return "*" + message + "\\r\\n";
     }
-
 }
