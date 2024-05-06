@@ -6,7 +6,7 @@ public abstract class Resp {
 
     public static Resp deserialize(String data) {
 
-        String result = data.substring(1, data.length() - 2);
+        String result = data.substring(1, data.length() -4);
 
         if (data.startsWith("+")) {
             return new SimpleString(result);
@@ -15,6 +15,7 @@ public abstract class Resp {
             return new Error(result);
 
         }
-        return null;
+
+        throw new IllegalArgumentException("Unsupported RESP type");
     }
 }

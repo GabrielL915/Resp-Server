@@ -15,6 +15,6 @@ public class Error extends Resp {
 
     @Override
     public String serialize() {
-        return "-" + errorMessage + "\r\n";
+        return "-" + errorMessage + "\\r\\n";
     }
 }

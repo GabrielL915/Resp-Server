@@ -15,7 +15,7 @@ public class SimpleString extends Resp {
 
     @Override
     public String serialize() {
-        return "+" + message + "\r\n";
+        return "+" + message + "\\r\\n";
     }
 
 }
