@@ -17,7 +17,7 @@ public abstract class RespType {
             return new Error(substring);
 
         } else if (data.startsWith(":")) {
-            return new Integers(Integer.parseInt(substring));
+            return new Integers(substring);
 
         } else if (data.startsWith("$")) {
             String content = getBulkStringContent(data);

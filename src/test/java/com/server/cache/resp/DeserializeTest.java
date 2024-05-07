@@ -2,6 +2,7 @@ package com.server.cache.resp;
 
 import com.server.cache.domain.models.BulkString;
 import com.server.cache.domain.models.Error;
+import com.server.cache.domain.models.Integers;
 import com.server.cache.domain.models.RespType;
 import com.server.cache.domain.models.SimpleString;
 import org.junit.jupiter.api.Test;
@@ -34,5 +35,13 @@ public class DeserializeTest {
         RespType result = RespType.deserialize(input);
         assertInstanceOf(Error.class, result);
         assertEquals("Error message", ((Error) result).getErrorMessage());
+    }
+
+    @Test
+    void testDeserializeInteger() {
+        String input = ":1\\r\\n";
+        RespType result = RespType.deserialize(input);
+        assertInstanceOf(Integers.class, result);
+        assertEquals("1", ((Integers) result).getMessage());
     }
 }
