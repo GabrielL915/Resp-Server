@@ -14,11 +14,22 @@ public class CommandServiceTest {
     @InjectMocks
     private CommandService commandService;
 
+
+    //Fix
     @Test
     void testCommandServiceReturnCorrectBulkString() {
         String input = "$11\\r\\nHello world\\r\\n";
         String result = commandService.processCommand(input);
 
         assertEquals(input, result);
+    }
+
+    @Test
+    void testCommandServiceReturnCorrectSimpleString() {
+        String input = "+OK\\r\\n";
+        String result = commandService.processCommand(input);
+
+        assertEquals(input, result);
+
     }
 }
