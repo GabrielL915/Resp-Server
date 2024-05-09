@@ -38,6 +38,14 @@ public class CommandServiceTest {
         String result = commandService.processCommand(input);
 
         assertEquals(input, result);
-
     }
+
+    @Test
+    void testCommandServiceReturnCorrectIntegers() {
+        String input = ":1\\r\\n";
+        String result = commandService.processCommand(input);
+
+        assertEquals(input, result);
+    }
+
 }
