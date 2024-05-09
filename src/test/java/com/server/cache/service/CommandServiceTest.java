@@ -30,6 +30,14 @@ public class CommandServiceTest {
         String result = commandService.processCommand(input);
 
         assertEquals(input, result);
+    }
+
+    @Test
+    void testCommandServiceReturnCorrectError() {
+        String input = "-Error message\\r\\n";
+        String result = commandService.processCommand(input);
+
+        assertEquals(input, result);
 
     }
 }
