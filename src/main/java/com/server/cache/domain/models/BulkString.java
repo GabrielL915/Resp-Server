@@ -15,6 +15,6 @@ public class BulkString extends RespType {
 
     @Override
     public String serialize() {
-        return "$" + message + "\\r\\n";
+        return "$" + message.length() + "\\r\\n" + message + "\\r\\n";
     }
 }

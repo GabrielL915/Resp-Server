@@ -1,6 +1,5 @@
 package com.server.cache.service;
 
-import com.server.cache.domain.models.RespType;
 import com.server.cache.domain.service.CommandService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -14,8 +13,6 @@ public class CommandServiceTest {
     @InjectMocks
     private CommandService commandService;
 
-
-    //Fix
     @Test
     void testCommandServiceReturnCorrectBulkString() {
         String input = "$11\\r\\nHello world\\r\\n";
