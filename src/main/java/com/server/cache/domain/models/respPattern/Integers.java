@@ -1,4 +1,4 @@
-package com.server.cache.domain.models;
+package com.server.cache.domain.models.respPattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,13 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimpleString extends RespType {
+public class Integers extends RespType {
 
     private String message;
 
     @Override
     public String serialize() {
-        return "+" + message + "\\r\\n";
+        return ":" + message + "\\r\\n";
     }
-
 }

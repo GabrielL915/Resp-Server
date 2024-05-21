@@ -1,4 +1,4 @@
-package com.server.cache.domain.models;
+package com.server.cache.domain.models.respPattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BulkString extends RespType {
+public class Error extends RespType {
 
-    private String message;
+    private String errorMessage;
 
     @Override
     public String serialize() {
-        return "$" + message.length() + "\\r\\n" + message + "\\r\\n";
+        return "-" + errorMessage + "\\r\\n";
     }
 }

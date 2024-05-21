@@ -1,11 +1,11 @@
 package com.server.cache.resp;
 
-import com.server.cache.domain.models.Arrays;
-import com.server.cache.domain.models.BulkString;
-import com.server.cache.domain.models.Error;
-import com.server.cache.domain.models.Integers;
-import com.server.cache.domain.models.RespType;
-import com.server.cache.domain.models.SimpleString;
+import com.server.cache.domain.models.respPattern.Arrays;
+import com.server.cache.domain.models.respPattern.BulkString;
+import com.server.cache.domain.models.respPattern.Error;
+import com.server.cache.domain.models.respPattern.Integers;
+import com.server.cache.domain.models.respPattern.RespType;
+import com.server.cache.domain.models.respPattern.SimpleString;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -47,7 +47,7 @@ public class DeserializeTest {
     }
 
     @Test
-    void testDeserializeAArray() {
+    void testDeserializeArray() {
         String input = "*2\\r\\n$4\\r\\necho\\r\\n$11\\r\\nhello world\\r\\n";
         RespType result =  RespType.deserialize(input);
         assertInstanceOf(Arrays.class, result);

@@ -1,6 +1,6 @@
 package com.server.cache.domain.service;
 
-import com.server.cache.domain.models.RespType;
+import com.server.cache.domain.models.respPattern.RespType;
 import org.springframework.stereotype.Service;
 
 @Service
