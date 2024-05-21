@@ -25,28 +25,41 @@ public abstract class RespType {
 
 
         } else if (data.startsWith("*")) {
-            int endOfLengthIndex = data.indexOf('\r');
-            int count = Integer.parseInt(data.substring(1, endOfLengthIndex));
-
-            int startPos = endOfLengthIndex + 2;
-
-            List<RespType> elements = new ArrayList<>();
-
-            for (int i = 0; i < count; i++) {
-                int endOfLine = data.indexOf('\r', startPos);
-
-                String elementData = data.substring(startPos, endOfLine);
-
-                elements.add(deserialize(elementData));
-
-                startPos = endOfLine + 2;
-
-            }
-            return new Arrays(elements.toString());
+            return new Arrays(getRespArraysContents(data));
 
         } else {
             throw new IllegalArgumentException("Unsupported RESP type");
         }
+    }
+
+    private static List<RespType> getRespArraysContents(String data) {
+        int startIndex = 1;
+        int endIndex = data.indexOf("\\r\\n");
+
+        if (endIndex == -1) {
+            throw new IllegalArgumentException("Invalid RESP format, missing \\r\\n");
+        }
+
+        String lengthStr = data.substring(startIndex, endIndex);
+        int elementCount = Integer.parseInt(lengthStr);
+
+        List<RespType> elements = new ArrayList<>();
+        int currentStart = endIndex + 4;
+
+        while (elementCount-- > 0) {
+            endIndex = data.indexOf("\\r\\n", currentStart);
+            if (endIndex == -1) {
+                throw new IllegalArgumentException("Invalid RESP format, missing \\r\\n after element count");
+            }
+
+            int bulkLength = Integer.parseInt(data.substring(currentStart + 1, endIndex));
+            currentStart = endIndex + 4;
+            String bulkContent = data.substring(currentStart, currentStart + bulkLength);
+
+            elements.add(new BulkString(bulkContent));
+            currentStart += bulkLength + 4;
+        }
+        return elements;
     }
 
     private static String getBulkStringContent(String data) {

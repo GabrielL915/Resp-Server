@@ -45,4 +45,11 @@ public class CommandServiceTest {
         assertEquals(input, result);
     }
 
+    @Test
+    void testCommandServiceReturnCorrectArray() {
+        String input = "*2\\r\\n$4\\r\\necho\\r\\n$11\\r\\nhello world\\r\\n";
+        String result = commandService.processCommand(input);
+        assertEquals(input, result);
+    }
+
 }

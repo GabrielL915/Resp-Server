@@ -1,5 +1,6 @@
 package com.server.cache.resp;
 
+import com.server.cache.domain.models.Arrays;
 import com.server.cache.domain.models.BulkString;
 import com.server.cache.domain.models.Error;
 import com.server.cache.domain.models.Integers;
@@ -44,4 +45,14 @@ public class DeserializeTest {
         assertInstanceOf(Integers.class, result);
         assertEquals("1", ((Integers) result).getMessage());
     }
+
+    @Test
+    void testDeserializeAArray() {
+        String input = "*2\\r\\n$4\\r\\necho\\r\\n$11\\r\\nhello world\\r\\n";
+        RespType result =  RespType.deserialize(input);
+        assertInstanceOf(Arrays.class, result);
+        assertEquals("echo hello world", ((Arrays) result).getConcatenatedMessages());
+    }
+
+
 }

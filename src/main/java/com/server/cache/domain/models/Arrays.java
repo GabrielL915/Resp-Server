@@ -5,16 +5,33 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Arrays extends RespType{
+public class Arrays extends RespType {
 
-    private String message;
+    private List<RespType> message;
 
     @Override
     public String serialize() {
-        return "*" + message + "\\r\\n";
+        StringBuilder sb = new StringBuilder("*");
+        for (RespType element : message) {
+            sb.append(element.serialize());
+        }
+        return sb.toString();
+    }
+
+    public String getConcatenatedMessages() {
+        StringBuilder sb = new StringBuilder();
+        for (RespType element : message) {
+            if (element instanceof BulkString) {
+                sb.append(((BulkString) element).getMessage()).append(" ");
+            }
+        }
+        return sb.toString().trim();
     }
 }
+
