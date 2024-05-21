@@ -1,4 +1,4 @@
-package com.server.cache.shared.utils.factory;
+package com.server.cache.domain.factory;
 
 import com.server.cache.domain.models.respPattern.Arrays;
 import com.server.cache.domain.models.respPattern.RespType;
@@ -11,7 +11,7 @@ public class ArrayFactory implements RespTypeFactory {
     @Override
     public RespType createRespType(String data) {
         Arrays respArray = new Arrays();
-        List<RespType> result = respArray.setRespArraysContents(data);
+        List<RespType> result = respArray.getContentsFromRespArrayPattern(data);
         respArray.setMessage(result);
         return respArray;
     }

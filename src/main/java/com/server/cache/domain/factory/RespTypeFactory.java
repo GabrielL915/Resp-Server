@@ -1,4 +1,4 @@
-package com.server.cache.shared.utils.factory;
+package com.server.cache.domain.factory;
 
 import com.server.cache.domain.models.respPattern.RespType;
 

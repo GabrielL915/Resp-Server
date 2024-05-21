@@ -1,4 +1,4 @@
-package com.server.cache.shared.utils.factory;
+package com.server.cache.domain.factory;
 
 import com.server.cache.domain.models.respPattern.BulkString;
 import com.server.cache.domain.models.respPattern.RespType;
@@ -7,7 +7,7 @@ public class BulkStringFactory implements RespTypeFactory {
     @Override
     public RespType createRespType(String data) {
         BulkString bulkString = new BulkString();
-        String result = bulkString.setBulkStringContent(data);
+        String result = bulkString.getContentFromBulkStringRespPattern(data);
         bulkString.setMessage(result);
         return bulkString;
     }

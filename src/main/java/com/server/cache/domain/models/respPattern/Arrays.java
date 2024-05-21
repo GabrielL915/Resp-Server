@@ -35,7 +35,7 @@ public class Arrays extends RespType {
         return sb.toString().trim();
     }
 
-    public List<RespType> setRespArraysContents(String data) {
+    public List<RespType> getContentsFromRespArrayPattern(String data) {
         int startIndex = 1;
         int endIndex = data.indexOf("\\r\\n");
 

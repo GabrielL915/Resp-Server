@@ -19,7 +19,7 @@ public class BulkString extends RespType {
     }
 
 
-     public String setBulkStringContent(String data) {
+     public String getContentFromBulkStringRespPattern(String data) {
         int startIndex = 1;
         int endIndex = data.indexOf("\\r\\n");
 

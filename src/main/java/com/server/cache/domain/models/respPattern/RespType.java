@@ -1,7 +1,7 @@
 package com.server.cache.domain.models.respPattern;
 
 import com.server.cache.domain.service.RespTypeFactoryService;
-import com.server.cache.shared.utils.factory.RespTypeFactory;
+import com.server.cache.domain.factory.RespTypeFactory;
 
 public abstract class RespType {
 

@@ -1,11 +1,11 @@
 package com.server.cache.domain.service;
 
-import com.server.cache.shared.utils.factory.ArrayFactory;
-import com.server.cache.shared.utils.factory.BulkStringFactory;
-import com.server.cache.shared.utils.factory.ErrorFactory;
-import com.server.cache.shared.utils.factory.IntegersFactory;
-import com.server.cache.shared.utils.factory.RespTypeFactory;
-import com.server.cache.shared.utils.factory.SimpleStringFactory;
+import com.server.cache.domain.factory.ArrayFactory;
+import com.server.cache.domain.factory.BulkStringFactory;
+import com.server.cache.domain.factory.ErrorFactory;
+import com.server.cache.domain.factory.IntegersFactory;
+import com.server.cache.domain.factory.RespTypeFactory;
+import com.server.cache.domain.factory.SimpleStringFactory;
 
 public class RespTypeFactoryService {
 
