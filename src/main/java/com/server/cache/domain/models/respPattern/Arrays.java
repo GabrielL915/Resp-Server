@@ -18,7 +18,7 @@ public class Arrays extends RespType {
 
     @Override
     public String serialize() {
-        StringBuilder sb = new StringBuilder("*");
+        StringBuilder sb = new StringBuilder("*" + message.size() + "\\r\\n");
         for (RespType element : message) {
             sb.append(element.serialize());
         }
