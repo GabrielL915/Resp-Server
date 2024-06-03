@@ -7,7 +7,14 @@ import org.springframework.stereotype.Service;
 public class CommandService {
 
     public String processCommand(String command) {
-       RespType deserializeCommand = RespType.deserialize(command);
-       return deserializeCommand.serialize();
+        try {
+            if(command.equalsIgnoreCase("$4")) {
+                return "PONG\\r\\n";
+            }
+            RespType deserializeCommand = RespType.deserialize(command);
+            return deserializeCommand.serialize();
+        } catch (IllegalArgumentException e) {
+            return "-Error " + e.getMessage() + "  comando: " + command + "\\r\\n";
+        }
     }
 }
