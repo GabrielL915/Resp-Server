@@ -8,13 +8,13 @@ public class CommandService {
 
     public String processCommand(String command) {
         try {
-            if(command.equalsIgnoreCase("$4")) {
-                return "PONG\\r\\n";
+            if(command.equalsIgnoreCase("ping")) {
+                return "$4\r\nPONG";
             }
             RespType deserializeCommand = RespType.deserialize(command);
             return deserializeCommand.serialize();
         } catch (IllegalArgumentException e) {
-            return "-Error " + e.getMessage() + "  comando: " + command + "\\r\\n";
+            return "-Error1 " + e.getMessage() + "  comando: " + command;
         }
     }
 }
