@@ -4,22 +4,22 @@ import com.server.cacher.shared.enums.RespDataEnum;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class RespSimpleString extends RespData {
+public class RespInteger extends RespData {
 
-    private final String value;
+    private final Long value;
 
     @Override
     public RespDataEnum getType() {
-        return RespDataEnum.SIMPLE_STRING;
+        return RespDataEnum.INTEGERS;
     }
 
     @Override
     public String getFormattedValue() {
-        return "+" + value + "\r\n";
+        return ":" + value + "\r\n";
     }
 
     @Override
-    public String getRawValue() {
+    public Long getRawValue() {
         return value;
     }
 }

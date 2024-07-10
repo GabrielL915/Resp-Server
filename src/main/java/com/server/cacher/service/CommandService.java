@@ -1,6 +1,6 @@
 package com.server.cacher.service;
 
-import com.server.cacher.shared.enuns.RespDataType;
+import com.server.cacher.shared.enums.RespDataEnum;
 import com.server.cacher.shared.types.RespData;
 import com.server.cacher.shared.types.RespSimpleString;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ public class CommandService {
         try {
             RespData respData = parseCommand(command);
 
-            if (respData.getType() == RespDataType.SIMPLE_STRING) {
+            if (respData.getType() == RespDataEnum.SIMPLE_STRING) {
                 return ((RespSimpleString) respData).getRawValue();
             }
 

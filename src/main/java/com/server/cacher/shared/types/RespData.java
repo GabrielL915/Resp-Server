@@ -1,10 +1,10 @@
 package com.server.cacher.shared.types;
 
-import com.server.cacher.shared.enuns.RespDataType;
+import com.server.cacher.shared.enums.RespDataEnum;
 
 public abstract class RespData {
 
-    abstract public RespDataType getType();
+    abstract public RespDataEnum getType();
 
     abstract public String getFormattedValue();
 

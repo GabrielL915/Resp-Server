@@ -1,6 +1,6 @@
-package com.server.cacher.shared.enuns;
+package com.server.cacher.shared.enums;
 
-public enum RespDataType {
+public enum RespDataEnum {
     SIMPLE_STRING,
     BULK_STRING,
     INTEGERS,
