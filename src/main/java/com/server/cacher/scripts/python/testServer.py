@@ -17,3 +17,4 @@ def send_command(command):
 
 # Chamando a função
 send_command(b'+OKokokokooko\r\n')
+send_command(b':1\r\n')
