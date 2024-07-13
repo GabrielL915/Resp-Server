@@ -18,3 +18,4 @@ def send_command(command):
         sock.close()
 
 send_command(b'+OKokokokooko\r\n')
+send_command(b':1\r\n')

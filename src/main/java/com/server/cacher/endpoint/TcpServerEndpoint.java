@@ -1,6 +1,6 @@
 package com.server.cacher.endpoint;
 
-import com.server.cacher.service.service.CommandService;
+import com.server.cacher.service.CommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
