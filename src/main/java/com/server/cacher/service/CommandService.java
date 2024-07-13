@@ -1,6 +1,5 @@
 package com.server.cacher.service;
 
-import com.server.cacher.shared.enums.RespDataEnum;
 import com.server.cacher.shared.types.RespData;
 import com.server.cacher.shared.types.RespInteger;
 import com.server.cacher.shared.types.RespSimpleString;
