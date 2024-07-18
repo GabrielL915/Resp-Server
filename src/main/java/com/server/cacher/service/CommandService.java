@@ -4,23 +4,22 @@ import com.server.cacher.shared.types.RespBulkString;
 import com.server.cacher.shared.types.RespData;
 import com.server.cacher.shared.types.RespInteger;
 import com.server.cacher.shared.types.RespSimpleString;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CommandService {
 
+    private static final Logger logger = LoggerFactory.getLogger(CommandService.class);
+
     public String processCommand(String command) {
         try {
-            Object result = null;
             RespData respData = parseCommand(command);
 
-            switch (respData.getType()) {
-                case SIMPLE_STRING -> result = ((RespSimpleString) respData).getRawValue();
-                case INTEGERS -> result = ((RespInteger) respData).getRawValue();
-                case BULK_STRING -> result = ((RespBulkString) respData).getRawValue();
-            }
-            assert result != null;
-            return result.toString();
+            String result = respData.getFormattedValue();
+            logger.info("Processed command: " + command + ", Result: " + result);
+            return result;
         } catch (IllegalArgumentException e) {
             return "-Error " + e.getMessage() + " command: " + command;
         }

@@ -43,6 +43,7 @@ public class TcpServerConfig {
         TcpInboundGateway tcpInboundGateway = new TcpInboundGateway();
         tcpInboundGateway.setConnectionFactory(serverConnectionFactory);
         tcpInboundGateway.setRequestChannel(inBoundChannel);
+        logger.info("TcpInboundGateway configured with channel: " + inBoundChannel);
         return tcpInboundGateway;
     }
 
